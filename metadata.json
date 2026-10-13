@@ -1,0 +1,8 @@
+{
+  "name": "Marianna Di Martino | Consulente Mutui & Acquisto Casa OAM",
+  "description": "Consulenza mutui casa indipendente e personalizzata con Marianna Di Martino, iscritta OAM. Calcolo rata, osservatorio tassi Euribor/Eurirs in tempo reale e confronto banche.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
