@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Cookie, ShieldCheck, ExternalLink, Settings, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, Cookie, ShieldCheck, ExternalLink, Settings, CheckCircle2, ShieldAlert } from 'lucide-react';
 
 interface CookiePolicyModalProps {
   isOpen: boolean;
@@ -24,112 +24,79 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
               <Cookie className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-xl font-bold tracking-tight">Informativa Estesa sui Cookie (Cookie Policy)</h2>
+              <h2 className="text-xl font-bold tracking-tight">Cookie Policy & Assenza Tracciamento Terze Parti</h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                In conformità alle Linee guida del Garante Privacy del 10 giugno 2021 e alla Direttiva ePrivacy 2002/58/CE
+                Conforme alle Linee guida del Garante Privacy del 10 giugno 2021 e alla Direttiva ePrivacy 2002/58/CE
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
             title="Chiudi informativa cookie"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Modal Body - Scrollable Cookie Policy Content */}
+        {/* Modal Body */}
         <div className="p-6 overflow-y-auto space-y-6 text-sm text-slate-700 leading-relaxed font-sans">
-          {/* Summary Box */}
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-950 text-xs sm:text-sm flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+          {/* Third-Party Zero Banner */}
+          <div className="bg-emerald-50 border border-emerald-300 rounded-xl p-4 text-emerald-950 text-xs sm:text-sm flex items-start gap-3">
+            <ShieldAlert className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="font-semibold block mb-1">Cosa sono i Cookie?</strong>
-              I cookie sono piccoli file di testo che i siti visitati inviano al terminale dell'utente (browser), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva. Questo sito utilizza unicamente cookie tecnici necessari al funzionamento e, solo se preventivamente autorizzati dall'utente, cookie di analisi o personalizzazione.
+              <strong className="font-bold block mb-1">Nessun Cookie o Tracciatore di Parti Terze:</strong>
+              Questo sito utilizza **esclusivamente cookie tecnici di prima parte** essenziali alla navigazione. NON vengono utilizzati cookie di terze parti (es. social network, ad network esterni, pixel di profilazione commerciale) né vengono trasmessi dati a soggetti terzi.
             </div>
           </div>
 
-          {/* Section 1: Principi Fondamentali Garante Privacy 2021 */}
-          <section className="space-y-3">
-            <h3 className="text-base font-bold text-slate-900 border-b pb-2 border-slate-200">
-              1. Conformità alle Linee Guida del Garante della Privacy (10 Giugno 2021)
-            </h3>
-            <p>
-              In ossequio alle direttive emanate dall'Autorità Garante per la Protezione dei Dati Personali (Doc. web n. 9677876):
-            </p>
-            <ul className="list-disc pl-5 space-y-1.5 text-slate-700">
-              <li><strong>Impostazioni Predefinite (Privacy by Default):</strong> Al primo accesso, l'utente naviga in modalità protetta senza che venga attivato alcun cookie o tracciatore diverso da quelli strettamente tecnici.</li>
-              <li><strong>Equiparazione della Chiusura (Pulsante X / Rifiuta tutti):</strong> Chiudendo il banner o facendo clic su "Rifiuta tutti" non viene prestato alcun consenso ai cookie non essenziali.</li>
-              <li><strong>Esercizio e Revoca del Consenso in ogni momento:</strong> Tramite il pulsante galleggiante "Preferenze Privacy" presente su tutte le pagine, l'utente può riaprire il pannello delle preferenze e modificare le sue scelte quando lo desidera.</li>
-            </ul>
-          </section>
-
-          {/* Section 2: Categorie di Cookie Utilizzate */}
+          {/* Section 1: Cookie di Prima Parte Strettamente Necessari */}
           <section className="space-y-4">
             <h3 className="text-base font-bold text-slate-900 border-b pb-2 border-slate-200">
-              2. Categorie di Cookie e Finalità
+              1. Tipologia di Cookie Utilizzati (Solo Prima Parte)
             </h3>
 
-            {/* Category 1: Technical */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-sm flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  Cookie Tecnici e Strettamente Necessari (Sempre Attivi)
+                  Cookie Tecnici di Prima Parte (Sempre Attivi)
                 </span>
                 <span className="text-[11px] font-semibold bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full">
-                  Obbligatori per Legge
+                  Prima Parte / Essenziali
                 </span>
               </div>
               <p className="text-xs text-slate-600">
-                Sono indispensabili per il corretto funzionamento del sito, per la navigazione sicura, per consentire la compilazione dei moduli di simulazione e per memorizzare le impostazioni sulla privacy scelte dall'utente. Per l'installazione di tali cookie non è richiesto il preventivo consenso dell'utente (Art. 122 D.Lgs. 196/2003).
+                L'utilizzo è limitato ai soli cookie di sessione e tecnici locali necessari per salvare le preferenze di navigazione dell'utente e consentire l'utilizzo dei calcolatori e delle simulazioni mutuo in modalità totalmente protetta.
               </p>
               <div className="text-[11px] text-slate-500 font-mono bg-white p-2 rounded border border-slate-200 mt-1">
-                Esempi: <code>cookie_consent_status</code> (memorizza il consenso privacy per 6 mesi), <code>session_id</code>.
+                Identificatore: <code>marianna_cookie_consent_v1</code> (salva la scelta privacy direttamente sul tuo dispositivo senza inviare dati all'esterno).
               </div>
             </div>
 
-            {/* Category 2: Analytics */}
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-300 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-blue-600" />
-                  Cookie Analitici e Prestazionali (Opzionali)
+                <span className="font-bold text-slate-800 text-sm flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-slate-500" />
+                  Cookie e Profilazione di Terze Parti
                 </span>
                 <span className="text-[11px] font-semibold bg-slate-200 text-slate-700 px-2.5 py-0.5 rounded-full">
-                  Richiedono Consenso
+                  DISATTIVATI / NON PRESENTI
                 </span>
               </div>
               <p className="text-xs text-slate-600">
-                Laddove attivati, consentono di raccogliere informazioni in forma aggregata ed anonima sul numero degli utenti e su come questi visitano il sito (pagine più viste, tempo di permanenza), al fine di migliorare le prestazioni del servizio.
-              </p>
-            </div>
-
-            {/* Category 3: Marketing */}
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-purple-600" />
-                  Cookie di Marketing e Profilazione (Opzionali)
-                </span>
-                <span className="text-[11px] font-semibold bg-slate-200 text-slate-700 px-2.5 py-0.5 rounded-full">
-                  Richiedono Consenso
-                </span>
-              </div>
-              <p className="text-xs text-slate-600">
-                Servono a tracciare la navigazione dell'utente in rete per creare profili sui suoi gusti, abitudini e scelte, al fine di trasmettere messaggi pubblicitari in linea con le preferenze manifestate dall'utente durante la navigazione.
+                Sul presente sito **NON sono attivi** cookie di terze parti, pixel di retargeting o script di profilazione commerciale esterna. Nessun dato di navigazione viene condiviso con parti terze.
               </p>
             </div>
           </section>
 
-          {/* Section 3: Gestione tramite Browser */}
+          {/* Section 2: Gestione Browser */}
           <section className="space-y-3">
             <h3 className="text-base font-bold text-slate-900 border-b pb-2 border-slate-200">
-              3. Come Disabilitare i Cookie dai Principali Browser
+              2. Controllo dei Cookie tramite Browser
             </h3>
             <p className="text-xs text-slate-600">
-              Oltre ad utilizzare il nostro pannello di controllo, è possibile gestire o disabilitare i cookie direttamente dalle impostazioni del proprio browser di navigazione:
+              Puoi verificare o bloccare i cookie in qualsiasi momento direttamente dalle impostazioni riservate del tuo browser:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-medium">
               <a
@@ -170,44 +137,22 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
               </a>
             </div>
           </section>
-
-          {/* Section 4: Fonti Normative Ufficiali */}
-          <section className="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-              Riferimenti Normativi e Guida Ufficiale Garante Privacy:
-            </div>
-            <p className="text-xs text-slate-600">
-              Per maggiori informazioni sui tuoi diritti e sulle norme in materia di strumenti di tracciamento, puoi consultare la scheda sintetica ufficiale dell'Autorità Garante Privacy per la Protezione dei Dati Personali:
-            </p>
-            <div className="pt-1">
-              <a
-                href="https://www.garanteprivacy.it/cookie"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-700 hover:text-emerald-800 underline"
-              >
-                <span>Linee guida Garante Privacy per i cookie (garanteprivacy.it/cookie)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </section>
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
           <button
             onClick={() => {
               onClose();
               onOpenCookiePreferences();
             }}
-            className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-semibold text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="text-xs text-emerald-700 hover:text-emerald-800 font-semibold underline cursor-pointer"
           >
-            <Settings className="w-4 h-4" />
-            Personalizza Preferenze Cookie
+            Pannello Preferenze Cookie
           </button>
           <button
             onClick={onClose}
-            className="w-full sm:w-auto px-6 py-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-xl font-semibold text-xs transition-colors cursor-pointer"
+            className="px-6 py-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-xl font-semibold text-xs transition-colors cursor-pointer"
           >
             Chiudi Informativa
           </button>
